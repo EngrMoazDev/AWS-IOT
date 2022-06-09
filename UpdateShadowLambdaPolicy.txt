@@ -1,0 +1,5 @@
+{
+            "Effect": "Allow",
+            "Action": "iot:UpdateThingShadow",
+            "Resource": "arn:aws:iot:REGION:ID:thing/ESP32WROOM"
+}

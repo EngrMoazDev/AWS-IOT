@@ -1,0 +1,4 @@
+https://catalog.us-east-1.prod.workshops.aws/workshops/5b127b2f-f879-48b9-9dd0-35aff98c7bbc/en-US/module3
+https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html
+https://docs.aws.amazon.com/iot/latest/developerguide/device-shadow-rest-api.html
+https://github.com/aws-samples/aws-iot-esp32-arduino-examples/blob/master/examples/basic-pubsub/basic-pubsub.ino
