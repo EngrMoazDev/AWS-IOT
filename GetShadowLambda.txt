@@ -6,22 +6,22 @@ logger = logging.getLogger()
 logger.setLevel(logging.INFO)
  
 client = boto3.client('iot-data')
- 
+
 def lambda_handler(event, context):
     
-    # print(json.dumps(event))
-    print("Thing Name: " + json.dumps(event['queryStringParameters']['thingname']))
+    print(json.dumps(event))
     
     logger.info("Attempting to fetch Shadow State")
-    
+    logger.info(event)
     THINGNAME=event['queryStringParameters']['thingname']
     if (THINGNAME == ""):
         print("No Thing Name found. Setting Thing Name = ESP32WROOM")
         THINGNAME="ESP32WROOM"
-    
     try:
-        print("inside try")
         response = client.get_thing_shadow(thingName=THINGNAME)
+        
+        
+        
         logger.info(response)
         logger.info("Shadow State Received")
         res = response['payload'].read()
@@ -36,11 +36,13 @@ def lambda_handler(event, context):
      
         value = status['status']
         if (value == "on"):
-            status['status'] = "It's On"
+            status['status'] = "LED: ON"
         else:
-            status['status'] = "It's Off"
-        
+            status['status'] = "LED: OFF"
         logger.info("Sending to Website: " + json.dumps(status) + "\n")
+        
+        status['temp'] = status['temp']
+        status['humidity'] = status['humidity']
         
         return {
             'statusCode': 200,
