@@ -4,7 +4,9 @@
       "status": "on"
     },
     "reported": {
-      "status": "on"
+      "status": "on",
+      "temp":"0",
+      "humidity":"0"
     }
   }
 }
